@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why Am B ! itchless? v2.0 — Extended Dataset</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=STIX+Two+Math&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Permanent+Marker&display=swap"
+        rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+    <style>
+        :root {
+            --bg: #fdf6e3;
+            --ink: #1a1208;
+            --red: #c0392b;
+            --blue: #1a5276;
+            --green: #1e8449;
+            --yellow: #f39c12;
+            --purple: #7d3c98;
+            --orange: #ca6f1e;
+            --paper: #fffef5;
+            --grid: #d5c9b0;
+            --dim: #7a6a50;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--ink);
+            font-family: 'Courier Prime', monospace;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image:
+                linear-gradient(var(--grid) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+            background-size: 30px 30px;
+            opacity: 0.4;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .page {
+            position: relative;
+            z-index: 1;
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 40px 24px 100px;
+        }
+
+        /* ── HEADER ── */
+        .stamp {
+            display: inline-block;
+            border: 4px solid var(--red);
+            color: var(--red);
+            font-family: 'Courier Prime', monospace;
+            font-weight: 700;
+            font-size: 12px;
+            padding: 3px 10px;
+            transform: rotate(-3deg);
+            letter-spacing: 2px;
+            opacity: 0.85;
+            margin-bottom: 8px;
+        }
+
+        h1 {
+            font-family: 'Permanent Marker', cursive;
+            font-size: clamp(30px, 6vw, 56px);
+            line-height: 1.1;
+            color: var(--ink);
+            margin-bottom: 4px;
+        }
+
+        .subtitle {
+            font-style: italic;
+            font-size: 13px;
+            color: var(--dim);
+            margin-bottom: 10px;
+        }
+
+        .n-badge {
+            display: inline-block;
+            background: var(--ink);
+            color: var(--bg);
+            font-family: 'Courier Prime', monospace;
+            font-weight: 700;
+            font-size: 12px;
+            letter-spacing: 2px;
+            padding: 4px 14px;
+            margin-bottom: 36px;
+        }
+
+        /* ── SECTIONS ── */
+        .section {
+            background: var(--paper);
+            border: 2px solid var(--ink);
+            border-radius: 2px;
+            padding: 28px;
+            margin-bottom: 32px;
+            box-shadow: 5px 5px 0 var(--ink);
+            position: relative;
+            animation: fadeInUp 0.5s ease both;
+        }
+
+        .section:nth-child(2) {
+            animation-delay: 0.05s;
+        }
+
+        .section:nth-child(3) {
+            animation-delay: 0.10s;
+        }
+
+        .section:nth-child(4) {
+            animation-delay: 0.15s;
+        }
+
+        .section:nth-child(5) {
+            animation-delay: 0.20s;
+        }
+
+        .section:nth-child(6) {
+            animation-delay: 0.25s;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(18px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-label {
+            position: absolute;
+            top: -14px;
+            left: 16px;
+            background: var(--ink);
+            color: var(--paper);
+            font-family: 'Courier Prime', monospace;
+            font-weight: 700;
+            font-size: 11px;
+            letter-spacing: 2px;
+            padding: 2px 12px;
+        }
+
+        h2 {
+            font-family: 'Courier Prime', monospace;
+            font-weight: 700;
+            font-size: 17px;
+            color: var(--blue);
+            margin-bottom: 14px;
+            border-bottom: 2px dashed var(--blue);
+            padding-bottom: 6px;
+        }
+
+        /* ── TIMELINE ── */
+        .timeline {
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: repeating-linear-gradient(to bottom,
+                    var(--ink) 0px, var(--ink) 8px,
+                    transparent 8px, transparent 14px);
+        }
+
+        .trial {
+            position: relative;
+            padding: 0 0 24px 62px;
+        }
+
+        .trial-dot {
+            position: absolute;
+            left: 10px;
+            top: 12px;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            border: 3px solid var(--ink);
+            background: var(--paper);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Courier Prime', monospace;
+            font-weight: 700;
+            font-size: 10px;
+            color: var(--ink);
+        }
+
+        .trial-card {
+            background: var(--bg);
+            border: 2px solid var(--ink);
+            border-left: 5px solid;
+            padding: 14px 18px;
+            box-shadow: 3px 3px 0 #ccc;
+        }
+
+        .trial-header {
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 8px;
+        }
+
+        .trial-id {
+            font-family: 'Permanent Marker', cursive;
+            font-size: 20px;
+        }
+
+        .trial-meta {
+            font-size: 11px;
+            color: var(--dim);
+            letter-spacing: 1px;
+        }
+
+        .trial-tag {
+            margin-left: auto;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 2px 8px;
+            border: 2px solid;
+        }
+
+        .trial-body {
+            font-size: 13px;
+            line-height: 1.9;
+            color: #4a3c28;
+        }
+
+        .trial-body .good {
+            color: var(--green);
+            font-weight: 700;
+        }
+
+        .trial-body .bad {
+            color: var(--red);
+            font-weight: 700;
+        }
+
+        .trial-body .cope {
+            color: var(--dim);
+            font-style: italic;
+        }
+
+        .outcome-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .outcome-chip {
+            padding: 2px 10px;
+            border: 2px solid;
+            font-weight: 700;
+        }
+
+        /* ── EQUATIONS ── */
+        .equation {
+            background: #f0ebe0;
+            border-left: 4px solid var(--blue);
+            padding: 13px 18px;
+            margin: 14px 0;
+            font-size: 15px;
+            font-weight: 700;
+            overflow-x: auto;
+            white-space: nowrap;
+            color: var(--blue);
+        }
+
+        .eq-note {
+            font-size: 11px;
+            color: var(--red);
+            font-style: italic;
+            margin-top: 4px;
+            font-weight: 400;
+            white-space: normal;
+            color: var(--dim);
+        }
+
+        .theorem {
+            border: 2px solid var(--green);
+            background: #f0fff4;
+            padding: 14px 18px;
+            margin: 14px 0;
+            box-shadow: 3px 3px 0 var(--green);
+            font-size: 13px;
+            line-height: 1.8;
+            color: #2c4a2c;
+        }
+
+        .theorem strong {
+            color: var(--green);
+            font-size: 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .warning {
+            border: 2px solid var(--red);
+            background: #fdecea;
+            padding: 14px 18px;
+            margin: 14px 0;
+            box-shadow: 3px 3px 0 var(--red);
+            font-size: 13px;
+            line-height: 1.8;
+            color: #5a1a1a;
+        }
+
+        .warning strong {
+            color: var(--red);
+            font-size: 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .margin-note {
+            font-family: 'Permanent Marker', cursive;
+            font-size: 16px;
+            color: var(--red);
+            transform: rotate(-1.2deg);
+            display: inline-block;
+            margin: 8px 0;
+        }
+
+        /* ── CHARTS ── */
+        .chart-wrap {
+            position: relative;
+            width: 100%;
+            height: 260px;
+            margin: 16px 0;
+        }
+
+        .chart-wrap-sm {
+            position: relative;
+            width: 100%;
+            height: 210px;
+            margin: 16px 0;
+        }
+
+        .charts-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media(max-width: 580px) {
+            .charts-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .chart-label {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--dim);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        /* ── TABLE ── */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12px;
+            margin: 16px 0;
+        }
+
+        .data-table th {
+            background: var(--ink);
+            color: var(--paper);
+            font-family: 'Courier Prime', monospace;
+            font-weight: 700;
+            letter-spacing: 1px;
+            padding: 8px 12px;
+            text-align: left;
+            font-size: 11px;
+        }
+
+        .data-table td {
+            padding: 9px 12px;
+            border-bottom: 1px solid #e0d8c8;
+            color: #4a3c28;
+            vertical-align: top;
+        }
+
+        .data-table tr:hover td {
+            background: #f5f0e8;
+        }
+
+        /* ── VERDICT ── */
+        .verdict {
+            background: var(--ink);
+            color: var(--bg);
+            padding: 32px 28px;
+            box-shadow: 8px 8px 0 #8b7355;
+        }
+
+        .verdict h2 {
+            color: var(--yellow);
+            border-color: var(--yellow);
+            font-size: 20px;
+        }
+
+        .big-eq {
+            background: #2a2010;
+            border-left: 4px solid var(--yellow);
+            padding: 15px 20px;
+            margin: 14px 0;
+            font-size: 15px;
+            color: var(--yellow);
+            font-weight: 700;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+
+        .verdict p {
+            font-size: 13px;
+            line-height: 1.8;
+            color: #ccc;
+            margin-top: 12px;
+        }
+
+        .fix-list {
+            list-style: none;
+            margin-top: 16px;
+        }
+
+        .fix-list li {
+            padding: 9px 0;
+            border-bottom: 1px solid #333;
+            font-size: 13px;
+            color: #ccc;
+            line-height: 1.7;
+            display: flex;
+            gap: 12px;
+        }
+
+        .fix-list li .num {
+            color: var(--yellow);
+            font-family: 'Permanent Marker', cursive;
+            font-size: 20px;
+            min-width: 26px;
+        }
+
+        .qed {
+            text-align: right;
+            font-family: 'Permanent Marker', cursive;
+            font-size: 22px;
+            color: var(--yellow);
+            margin-top: 20px;
+        }
+
+        .page-num {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 11px;
+            color: var(--dim);
+            letter-spacing: 2px;
+        }
+
+        /* colored accents per trial */
+        .c-blue {
+            color: var(--blue);
+            border-color: var(--blue);
+        }
+
+        .c-orange {
+            color: var(--orange);
+            border-color: var(--orange);
+        }
+
+        .c-purple {
+            color: var(--purple);
+            border-color: var(--purple);
+        }
+
+        .c-green {
+            color: var(--green);
+            border-color: var(--green);
+        }
+
+        .c-yellow {
+            color: var(--yellow);
+            border-color: var(--yellow);
+        }
+
+        .c-red {
+            color: var(--red);
+            border-color: var(--red);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+
+        <!-- HEADER -->
+        <div class="stamp">PEER REVIEWED ✓ — v2.0 EXTENDED</div>
+        <h1>Why Am B ! tchless?</h1>
+        <div class="subtitle">
+            A Longitudinal Mathematical Analysis of Romantic Catastrophe · 2025–2026<br>
+            <em>— Journal of Bro, What Happened · Vol. 2 · Extended Dataset Edition</em>
+        </div>
+        <div class="n-badge">⚠ SAMPLE SIZE UPDATED: N = 7+ · GHOST RATE: 85.7% · STATUS: COOKED</div>
+
+        <!-- §1 SUBJECT REGISTRY -->
+        <div class="section">
+            <div class="section-label">§1. COMPLETE SUBJECT REGISTRY — ALL TRIALS</div>
+            <h2>1.1 — Longitudinal Case Log (2025–2026)</h2>
+
+            <div class="timeline">
+
+                <!-- M -->
+                <div class="trial">
+                    <div class="trial-dot">1</div>
+                    <div class="trial-card" style="border-left-color:var(--blue);">
+                        <div class="trial-header">
+                            <span class="trial-id c-blue">M · Age 19</span>
+                            <span class="trial-meta">2025 · Class 11 · First-ever confession</span>
+                            <span class="trial-tag c-blue">FRIENDZONED × 2</span>
+                        </div>
+                        <div class="trial-body">
+                            → Only confession he ever made · Tin date · <span class="bad">Got friendzoned 😢</span> ·
+                            Then: Full blown text arc ~2 months · Met again for a proper date ·
+                            <span class="cope">"Introvert me fudes up with fear" · She also introvert ·</span>
+                            <span class="bad">She: "we both introvert" → relationship terminated 😊😊 (sad+happy,
+                                apparently)</span>
+                        </div>
+                        <div class="outcome-row">
+                            <span style="color:var(--dim);">Outcome:</span>
+                            <span class="outcome-chip c-blue">Quite up · same girl</span>
+                            <span style="color:var(--dim);">Pain:</span>
+                            <span class="outcome-chip c-red">6.5/10</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- S -->
+                <div class="trial">
+                    <div class="trial-dot">2</div>
+                    <div class="trial-card" style="border-left-color:var(--orange);">
+                        <div class="trial-header">
+                            <span class="trial-id c-orange">S · Age 21</span>
+                            <span class="trial-meta">2025 · Friend's Friend · Instagram</span>
+                            <span class="trial-tag c-orange">GHOST VIA PROXY</span>
+                        </div>
+                        <div class="trial-body">
+                            → Asked out randomly on IG · Went on a date · <span class="good">Date went smooth 😊</span>
+                            ·
+                            After the date took a long walk · Discussed some things ·
+                            <span class="good">Him: "things hitting off 😊"</span> ·
+                            Coming home → she ignored text ·
+                            <span class="bad">Got told through friend: "she's not interested 😢"</span>
+                        </div>
+                        <div class="outcome-row">
+                            <span style="color:var(--dim);">Outcome:</span>
+                            <span class="outcome-chip c-orange">Proxy Ghost (coward method)</span>
+                            <span style="color:var(--dim);">Pain:</span>
+                            <span class="outcome-chip c-red">8/10</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- So -->
+                <div class="trial">
+                    <div class="trial-dot">3</div>
+                    <div class="trial-card" style="border-left-color:var(--purple);">
+                        <div class="trial-header">
+                            <span class="trial-id c-purple">So · Age 20</span>
+                            <span class="trial-meta">2025 · Dating App Era Begins</span>
+                            <span class="trial-tag c-purple">GHOSTED WK 3</span>
+                        </div>
+                        <div class="trial-body">
+                            → Met on dating app · Personalities match · <span class="good">Vibe match 😊😊</span> ·
+                            3 weeks down → <span class="bad">got ghosted 😢</span> ·
+                            Left app for months →
+                            <span class="bad">3 more girls after So, same result (Trials 3b, 3c, 3d — all ghost, all
+                                app)</span>
+                        </div>
+                        <div class="outcome-row">
+                            <span style="color:var(--dim);">Outcome:</span>
+                            <span class="outcome-chip c-purple">Ghost + 3 Clone Ghosts</span>
+                            <span style="color:var(--dim);">Pain:</span>
+                            <span class="outcome-chip c-red">6.5/10 × 4</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- G -->
+                <div class="trial">
+                    <div class="trial-dot">6</div>
+                    <div class="trial-card" style="border-left-color:var(--green);">
+                        <div class="trial-header">
+                            <span class="trial-id c-green">G · Age 19</span>
+                            <span class="trial-meta">Nov 2025 · Psychology Major · Most Academic Ghost</span>
+                            <span class="trial-tag c-red">MEME GHOST 🐨</span>
+                        </div>
+                        <div class="trial-body">
+                            → Psychology major · Vibes match a lil bit ·
+                            <span class="good">She starts sending pics randomly → him: "things going good 😊👍"</span> ·
+                            Made a plan to meet after exams (2 weeks) ·
+                            <span class="bad">Got ghosted by her after she sends a NORMAL meme abruptly 🐨😢</span>
+                        </div>
+                        <div class="outcome-row">
+                            <span style="color:var(--dim);">Outcome:</span>
+                            <span class="outcome-chip c-red">Ghosted By Meme (historic)</span>
+                            <span style="color:var(--dim);">Pain:</span>
+                            <span class="outcome-chip c-red">10/10</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sr -->
+                <div class="trial">
+                    <div class="trial-dot">7</div>
+                    <div class="trial-card" style="border-left-color:var(--yellow);">
+                        <div class="trial-header">
+                            <span class="trial-id c-yellow">Sr · Age 23</span>
+                            <span class="trial-meta">Feb 2026 – Now · Same College, Diff Branch</span>
+                            <span class="trial-tag c-yellow">🔴 LIVE / ONGOING</span>
+                        </div>
+                        <div class="trial-body">
+                            → Same college, different branch — never met before ·
+                            Approached on WhatsApp · Flirting goes on/off ·
+                            <span class="good">Him: "thinking I'm doing great"</span> ·
+                            Met after a while with sudden circumstances ·
+                            <span class="cope">... notes cut off here. Outcome TBD. Do not blow it.</span>
+                        </div>
+                        <div class="outcome-row">
+                            <span style="color:var(--dim);">Status:</span>
+                            <span class="outcome-chip c-yellow">IN PROGRESS — handle with care</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="margin-note">← N=7. W=0. Statistically historic.</div>
+        </div>
+
+        <!-- §2 EQUATIONS -->
+        <div class="section">
+            <div class="section-label">§2. UPDATED MATHEMATICAL FRAMEWORK</div>
+            <h2>2.1 — Core Theorems (Extended)</h2>
+
+            <div class="theorem">
+                <strong>Theorem 4 — The Ghost Invariance Principle</strong>
+                Across all N=7 concluded trials, every "promising sign" (smooth date, pics sent, vibe match, meet plan
+                confirmed)
+                was followed by ghosting with P → 0.857. "Things going well" is not a predictor of success.
+                It is a <em>leading indicator of incoming ghost</em>.
+            </div>
+
+            <div class="equation">
+                P(ghost | "things going well") ≈ 6/7 = 0.857
+                <div class="eq-note">^ The more confident you feel, the more likely you're about to be ghosted. This is
+                    the Hope-Ghost Correlation (HGC). It is robust.</div>
+            </div>
+
+            <div class="equation">
+                Ghost_Trigger(G) = one (1) normal meme ← not even a risky meme
+                <div class="eq-note">^ A Psychology major studied human behavior, formed a meet-plan with you, then
+                    deployed a koala meme as a clean exit vector. Academically ruthless.</div>
+            </div>
+
+            <div class="theorem">
+                <strong>Theorem 5 — The App Multiplier Effect (So-Clone Sequence)</strong>
+                Dating apps produce rejection in batch mode. After So (Trial 3),
+                3 additional trials yielded identical outcomes. Define the So-Clone Sequence:
+                {So, So₂, So₃, So₄}. App ghost rate = 4/4 = 100%. Quitting was correct.
+            </div>
+
+            <div class="equation">
+                E[App_Result] = Σ ghost(i), i=3→6 / 4 = 1.000 [perfect ghost rate]
+                <div class="eq-note">^ A perfect score. Wrong direction.</div>
+            </div>
+
+            <div class="warning">
+                <strong>⚠ Critical Anomaly — The G Meme Ghost (Psychology Paradox)</strong>
+                G is a Psychology major. She understood exactly what she was doing.
+                Sending a normal meme then vanishing is a <em>clinical exit strategy</em> —
+                warm enough to not feel rude, conclusive enough to require no follow-up.
+                She studied human behaviour. She used it. The meme was the scalpel.
+            </div>
+
+            <div class="equation">
+                Cruelty_Index(G) = PsychSkill × Exit_Smoothness = undefined (approaches ∞)
+                <div class="eq-note">^ We must respect it mathematically even as we mourn.</div>
+            </div>
+
+            <div class="margin-note">She literally studied this and used it on you 💀</div>
+        </div>
+
+        <!-- §3 CHARTS -->
+        <div class="section">
+            <div class="section-label">§3. DATA VISUALISATION — EXTENDED ANALYSIS</div>
+
+            <h2>3.1 — Hope vs. Reality (All 7 Trials)</h2>
+            <div class="chart-wrap"><canvas id="hopeChart"></canvas></div>
+            <p style="font-size:11px; color:var(--dim); font-style:italic; margin-top:4px;">▲ Hope spikes reliably
+                before every ghost. Reality stays flat. The gap between lines = your pain.</p>
+
+            <h2 style="margin-top:24px;">3.2 — Failure Mode Breakdown & Meet Method ROI</h2>
+            <div class="charts-grid">
+                <div>
+                    <div class="chart-label">Fig 3.2a — How it ended (N=7)</div>
+                    <div class="chart-wrap-sm"><canvas id="failPie"></canvas></div>
+                </div>
+                <div>
+                    <div class="chart-label">Fig 3.2b — Meet method vs success</div>
+                    <div class="chart-wrap-sm"><canvas id="meetBar"></canvas></div>
+                </div>
+            </div>
+
+            <h2 style="margin-top:24px;">3.3 — Pain Index Per Trial (with trendline)</h2>
+            <div class="chart-wrap"><canvas id="painChart"></canvas></div>
+            <p style="font-size:11px; color:var(--dim); font-style:italic; margin-top:4px;">▲ G's meme ghost (10/10) is
+                a statistical outlier. Sr is projected at 5 if you handle it correctly.</p>
+
+            <h2 style="margin-top:24px;">3.4 — Days Until Ghost / End Per Trial</h2>
+            <div class="chart-wrap"><canvas id="ghostTime"></canvas></div>
+        </div>
+
+        <!-- §4 PATTERNS -->
+        <div class="section">
+            <div class="section-label">§4. PATTERN RECOGNITION</div>
+            <h2>4.1 — Cross-Trial Data Table</h2>
+
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Subject</th>
+                        <th>Meet Method</th>
+                        <th>Peak Optimism Quote</th>
+                        <th>Ghost Trigger</th>
+                        <th>Outcome</th>
+                        <th>Pain</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="color:var(--blue); font-weight:700;">M (19)</td>
+                        <td>School confession</td>
+                        <td>"We're vibing!"</td>
+                        <td>"We both introvert"</td>
+                        <td style="color:var(--red);">Friendzoned ×2</td>
+                        <td style="color:var(--red); font-weight:700;">9/10</td>
+                    </tr>
+                    <tr>
+                        <td style="color:var(--orange); font-weight:700;">S (21)</td>
+                        <td>IG / friend's friend</td>
+                        <td>"Long walk = love"</td>
+                        <td>Ignored text</td>
+                        <td style="color:var(--red);">Proxy Ghost</td>
+                        <td style="color:var(--red); font-weight:700;">8/10</td>
+                    </tr>
+                    <tr>
+                        <td style="color:var(--purple); font-weight:700;">So (20)</td>
+                        <td>Dating app</td>
+                        <td>"Vibe match 😊😊"</td>
+                        <td>Week 3 silence</td>
+                        <td style="color:var(--red);">Ghost</td>
+                        <td style="color:var(--red); font-weight:700;">7/10</td>
+                    </tr>
+                    <tr>
+                        <td style="color:var(--purple); font-weight:700;">So₂₋₄</td>
+                        <td>Same app</td>
+                        <td>Presumably same</td>
+                        <td>Same</td>
+                        <td style="color:var(--red);">×3 Ghost Clones</td>
+                        <td style="color:var(--red); font-weight:700;">6/10 ×3</td>
+                    </tr>
+                    <tr>
+                        <td style="color:var(--green); font-weight:700;">G (19)</td>
+                        <td>Organic</td>
+                        <td>"She sends pics 😊👍"</td>
+                        <td>Normal meme 🐨</td>
+                        <td style="color:var(--red);">Meme Ghost</td>
+                        <td style="color:var(--red); font-weight:700;">10/10</td>
+                    </tr>
+                    <tr>
+                        <td style="color:var(--yellow); font-weight:700;">Sr (23)</td>
+                        <td>WhatsApp / college</td>
+                        <td>"I'm doing great"</td>
+                        <td>TBD</td>
+                        <td style="color:var(--yellow);">🔴 Ongoing</td>
+                        <td style="color:var(--yellow); font-weight:700;">TBD</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="theorem">
+                <strong>Theorem 6 — The "Me Thinking Things Going Good" Curse</strong>
+                In 100% of concluded trials, subject reported high confidence immediately before rejection.
+                This suggests confidence is not a predictor of success but an inverse signal.
+                Formally: <em>Confidence(t) ∝ 1 / P(success at t+3 days)</em>.
+                When you think you're winning → you are statistically most likely to lose within 72 hours.
+            </div>
+
+            <div class="warning">
+                <strong>Identified Ghost Pattern (43% of trials — M, S, G)</strong>
+                [Good vibes established] → [She sends something unprompted] → [He thinks it's going well] → [She
+                vanishes] <br><br>
+                <strong>G-Specific Meme Ghost Subtype:</strong><br>
+                [Meet plan confirmed] → [She sends normal meme] → [Complete silence] → [No explanation, ever]
+            </div>
+        </div>
+
+        <!-- §5 VERDICT -->
+        <div class="verdict">
+            <h2>§5. Final Verdict & Corrective Protocol</h2>
+
+            <div class="big-eq">R(you) = 0 / 7 = 0.000 ← but Sr(ongoing) → R ∈ {0.000, 0.125}</div>
+            <div class="big-eq">Avg Pain = Σ(9+8+7+6+6+6+10) / 7 ≈ 7.43 / 10 per trial</div>
+            <div class="big-eq">App Ghost Rate = 4/4 = 1.000 ← do not return to the app</div>
+
+            <p>
+                After rigorous analysis of all 7 trials the data is clear: you are not fundamentally undateable.
+                You are operating in a high-variance, low-sample-size regime with a documented <strong
+                    style="color:#ffd700;">system error</strong>
+                — specifically, relaxing the moment things feel good. The meme ghost (G, Pain=10/10)
+                will be studied by future generations. A psychology major sent a koala and disappeared.
+                There are no words. Only equations.
+            </p>
+
+            <p style="margin-top:10px; color:#ffd700;">Sr (Age 23) is still alive in the dataset. The corrective
+                algorithm:</p>
+
+            <ul class="fix-list">
+                <li><span class="num">01</span> Stop treating "things going well" as a rest signal. In your data it is a
+                    red alert. Stay consistent.</li>
+                <li><span class="num">02</span> After S's long walk you waited for her to text. Don't do that. Follow up
+                    yourself, same evening, specific.</li>
+                <li><span class="num">03</span> G made a meet-plan then ghosted. Next time: confirm the plan 48 hours
+                    before with a specific time and place. Vague plans evaporate.</li>
+                <li><span class="num">04</span> The app era (So ×4, 100% ghost rate) is closed. You correctly left. Do
+                    not return.</li>
+                <li><span class="num">05</span> Sr is same-college. You will see her in person. Use that. It's your
+                    highest-probability scenario in the entire dataset.</li>
+                <li><span class="num">06</span> You wrote "shit so bad, left trying" — then started again in Feb 2026.
+                    That is the most important data point in this paper. You kept going.</li>
+            </ul>
+
+            <div class="qed">∎ &nbsp; Q.E.D. &nbsp;—&nbsp; N=7, W=0, but the function is not yet closed.</div>
+        </div>
+
+        <div class="page-num">— Page 1 of 1 · "Today's Lesson" Extended · Dept. of Applied Bro-matics · Vol. 2 · 2026 —
+        </div>
+
+    </div>
+
+    <script>
+        const FONT = { family: 'Courier Prime', size: 11 };
+        const tickColor = '#7a6a50';
+        const gridColor = '#e8dfc8';
+
+        // 3.1 Hope vs Reality
+        new Chart( document.getElementById( 'hopeChart' ), {
+            type: 'line',
+            data: {
+                labels: ['M start', 'M date', 'S date', 'S walk', 'So match', 'So ghost', 'App ×3', 'G pics', 'G plan', 'G meme', 'Sr now'],
+                datasets: [
+                    {
+                        label: 'Your Hope Level',
+                        data: [20, 70, 75, 90, 85, 10, 20, 80, 95, 5, 75],
+                        borderColor: '#1a5276', backgroundColor: 'rgba(26,82,118,0.1)',
+                        borderWidth: 2.5, tension: 0.4, pointRadius: 4, fill: true,
+                        pointBackgroundColor: '#1a5276'
+                    },
+                    {
+                        label: 'Actual Romantic Progress',
+                        data: [2, 3, 4, 5, 4, 0, 0, 3, 4, 0, 6],
+                        borderColor: '#c0392b', backgroundColor: 'rgba(192,57,43,0.07)',
+                        borderWidth: 2.5, borderDash: [6, 4], tension: 0.3, pointRadius: 4, fill: true,
+                        pointBackgroundColor: '#c0392b'
+                    }
+                ]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false,
+                plugins: { legend: { labels: { font: FONT, color: '#1a1208' } } },
+                scales: {
+                    x: { ticks: { font: FONT, color: tickColor }, grid: { color: gridColor } },
+                    y: {
+                        min: 0, max: 100, ticks: { font: FONT, color: tickColor }, grid: { color: gridColor },
+                        title: { display: true, text: 'Level (0–100)', font: FONT, color: tickColor }
+                    }
+                }
+            }
+        } );
+
+        // 3.2a Pie
+        new Chart( document.getElementById( 'failPie' ), {
+            type: 'doughnut',
+            data: {
+                labels: ['Friendzoned ×2', 'Proxy Ghost', 'App Ghost ×4', 'Meme Ghost', 'Ongoing'],
+                datasets: [{
+                    data: [1, 1, 4, 1, 1],
+                    backgroundColor: ['#1a5276', '#ca6f1e', '#7d3c98', '#c0392b', '#f39c12'],
+                    borderColor: '#fffef5', borderWidth: 3
+                }]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false,
+                plugins: { legend: { position: 'bottom', labels: { font: { family: 'Courier Prime', size: 10 }, color: '#1a1208', padding: 10 } } }
+            }
+        } );
+
+        // 3.2b Meet method bar
+        new Chart( document.getElementById( 'meetBar' ), {
+            type: 'bar',
+            data: {
+                labels: ['School/IRL', 'IG Social', 'Dating App', 'WhatsApp'],
+                datasets: [
+                    { label: 'Attempts', data: [1, 1, 4, 1], backgroundColor: 'rgba(26,82,118,0.65)', borderColor: '#1a5276', borderWidth: 2 },
+                    { label: 'Successes', data: [0, 0, 0, 0], backgroundColor: 'rgba(30,132,73,0.65)', borderColor: '#1e8449', borderWidth: 2 }
+                ]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false,
+                plugins: { legend: { labels: { font: FONT, color: '#1a1208' } } },
+                scales: {
+                    x: { ticks: { font: FONT, color: tickColor }, grid: { color: gridColor } },
+                    y: { ticks: { font: FONT, color: tickColor }, grid: { color: gridColor } }
+                }
+            }
+        } );
+
+        // 3.3 Pain index
+        new Chart( document.getElementById( 'painChart' ), {
+            type: 'line',
+            data: {
+                labels: ['M', 'S', 'So', 'So₂', 'So₃', 'So₄', 'G', 'Sr(proj)'],
+                datasets: [
+                    {
+                        label: 'Pain Index',
+                        data: [9, 8, 7, 6, 6, 6, 10, null],
+                        borderColor: '#c0392b', backgroundColor: 'rgba(192,57,43,0.09)',
+                        borderWidth: 2.5, tension: 0.3, fill: true, pointRadius: 5,
+                        pointBackgroundColor: '#c0392b'
+                    },
+                    {
+                        label: 'Projected (Sr)',
+                        data: [null, null, null, null, null, null, null, 5],
+                        borderColor: '#1e8449', borderDash: [6, 4], borderWidth: 2,
+                        pointRadius: 5, pointBackgroundColor: '#1e8449', fill: false
+                    }
+                ]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false,
+                plugins: { legend: { labels: { font: FONT, color: '#1a1208' } } },
+                scales: {
+                    x: { ticks: { font: FONT, color: tickColor }, grid: { color: gridColor } },
+                    y: {
+                        min: 0, max: 11, ticks: { font: FONT, color: tickColor }, grid: { color: gridColor },
+                        title: { display: true, text: 'Pain (0–10)', font: FONT, color: tickColor }
+                    }
+                }
+            }
+        } );
+
+        // 3.4 Days to ghost (horizontal bar)
+        new Chart( document.getElementById( 'ghostTime' ), {
+            type: 'bar',
+            data: {
+                labels: ['M (total arc)', 'S', 'So', 'So₂₋₄ avg', 'G', 'Sr'],
+                datasets: [{
+                    label: 'Days until ghost/end',
+                    data: [90, 1, 21, 14, 30, 999],
+                    backgroundColor: ['#1a5276', '#ca6f1e', '#7d3c98', '#7d3c98', '#c0392b', '#f39c12'],
+                    borderColor: '#1a1208', borderWidth: 2
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true, maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: { callbacks: { label: ctx => ctx.raw === 999 ? ' ONGOING' : ` ${ctx.raw} days` } }
+                },
+                scales: {
+                    x: {
+                        ticks: { font: FONT, color: tickColor }, grid: { color: gridColor },
+                        title: { display: true, text: 'Days', font: FONT, color: tickColor }
+                    },
+                    y: { ticks: { font: { family: 'Courier Prime', size: 12 }, color: tickColor }, grid: { color: gridColor } }
+                }
+            }
+        } );
+    </script>
+</body>
+
+</html>
